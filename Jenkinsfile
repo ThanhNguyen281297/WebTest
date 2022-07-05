@@ -16,9 +16,9 @@ pipeline {
                 sh "docker exec ${ContainerID} /bin/bash -c 'ls -l'"
             }
         }
-        stage ('Clone Code') {
+        stage ('Copy source code') {
             steps {
-                sh 'pwd $WORKSPACE'
+                sh "docker cp $WORKSPACE/* ${ContainerID}:/usr/share/nginx/html/"
             }
         }
     }
