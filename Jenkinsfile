@@ -16,5 +16,8 @@ pipeline {
                 sh "docker exec ${ContainerID} /bin/bash -c 'ls -l'"
             }
         }
+        stage ('Clone Code') {
+            echo 'pwd $WORKSPACE'
+        }
     }
 }
