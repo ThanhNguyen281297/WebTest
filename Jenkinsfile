@@ -18,7 +18,7 @@ pipeline {
         }
         stage ('Clone Code') {
             steps {
-                echo 'pwd $WORKSPACE'
+                sh 'pwd $WORKSPACE'
             }
         }
     }
