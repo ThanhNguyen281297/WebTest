@@ -18,7 +18,7 @@ pipeline {
         }
         stage ('Copy source code') {
             steps {
-                sh "docker cp $WORKSPACE/* ${ContainerID}:/usr/share/nginx/html/"
+                sh "docker cp -a $WORKSPACE/* ${ContainerID}:/usr/share/nginx/html/"
             }
         }
     }
