@@ -4,3 +4,4 @@ checkContainerID(){
     $containerID = awk "{print $1}" listContainer.txt
     echo $containerID
 }
+checkContainerID
