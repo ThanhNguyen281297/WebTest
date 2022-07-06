@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage ('Build Nginx') {
             steps {
-                sh './dockercheck.sh'
+                sh 'chmod +x ./dockercheck.sh'
             }
         }   
     }
