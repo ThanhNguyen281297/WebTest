@@ -7,7 +7,6 @@ pipeline {
             steps {
                 sh 'chmod +x ./scripts/dockercheck.sh'
                 sh './scripts/dockercheck.sh'
-                sh 'ls -l'
             }
         }
     }
