@@ -10,10 +10,13 @@ pipeline {
             steps {
                 sh 'docker pull nginx'
                 script {
-                    ContainerID =  sh( returnStdout: true, script: 'docker run -it -d -p 8081:80 nginx:latest').trim()
+                    if(ContainerID) {
+                        sh 'docker ps -a'
+                    }
+                    else {
+                        ContainerID =  sh( returnStdout: true, script: 'docker run -it -d -p 8081:80 nginx:latest').trim()
+                    }
                 }
-                sh 'docker ps -a'
-                sh "docker exec ${ContainerID} /bin/bash -c 'ls -l'"
             }
         }
         stage ('Copy source code') {
