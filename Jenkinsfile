@@ -9,17 +9,18 @@ pipeline {
         stage ('Build Nginx') {
             steps {
                 sh 'docker pull nginx'
+                sh 'docker ps -a >> listContainer.txt'
                 script {
-                    sh 'docker ps -a > listContainer.txt'
                     ContainerID =  sh( returnStdout: true, script: 'awk "{print $1}" listContainer.txt').trim()
                     // if(ContainerID) {
 
                     // }
                     // else {
                     //     sh 'docker run -it -d -p 8081:80 nginx:latest >> containerRun.txt'
-                    //     echo ${ContainerID}
+                    //     
                     // }
                 }
+                echo ${ContainerID}
             }
         }
         // stage ('Copy source code') {
