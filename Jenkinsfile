@@ -13,7 +13,7 @@ pipeline {
                 script {
                     ContainerID =  sh( returnStdout: true, script: 'awk "{print $1}" listContainer.txt').trim()
                     if(ContainerID) {
-                        echo ${ContainerID}
+                        echo '123213213'
                     }
                     // else {
                     //     sh 'docker run -it -d -p 8081:80 nginx:latest >> containerRun.txt'
