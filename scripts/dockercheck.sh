@@ -20,3 +20,4 @@ check_exist() {
         docker run -it -d -p 8081:80 --name $CONTAINER_NAME nginx:latest
     fi
 }
+check_exist
