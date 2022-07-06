@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Clone Code') {
             steps {
-                git https://github.com/ThanhNguyen281297/WebTest.git
+                git 'https://github.com/ThanhNguyen281297/WebTest.git'
             }
         }
         stage ('Build') {
