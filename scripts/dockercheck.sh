@@ -5,6 +5,7 @@ checkContainer(){
     if [$EXISTS_NAME_CONTAINER]; then
         docker exec -it $CONTAINER_NAME /bin/bash
     else
-        docker run -it -d -p 8081:80 --name nginx nginx:latest
+        docker run -it -d -p 8081:80 --name $CONTAINER_NAME nginx:latest
     fi
 }
+checkContainer
