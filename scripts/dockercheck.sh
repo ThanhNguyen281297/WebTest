@@ -2,7 +2,7 @@
 CONTAINER_NAME="nginx"
 checkContainer(){
     EXISTS_NAME_CONTAINER=$(docker inspect --type=container --format="{{.Name}}" $CONTAINER_NAME)
-    if [-n $EXISTS_NAME_CONTAINER]
+    if [$EXISTS_NAME_CONTAINER];
     then
         docker exec -it $CONTAINER_NAME /bin/bash
     else
