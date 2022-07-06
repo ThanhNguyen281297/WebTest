@@ -10,7 +10,7 @@ pipeline {
             steps {
                 sh 'docker pull nginx'
                 script {
-                    sh 'docker ps -a >> listContainer.txt'
+                    sh 'docker ps -a > listContainer.txt'
                     ContainerID =  sh( returnStdout: true, script: 'awk "{print $1}" listContainer.txt').trim()
                     // if(ContainerID) {
 
