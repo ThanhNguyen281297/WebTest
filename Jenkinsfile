@@ -13,14 +13,12 @@ pipeline {
                 script {
                     ContainerID =  sh( returnStdout: true, script: 'awk "{print $1}" listContainer.txt').trim()
                     if(ContainerID) {
-                        echo '${ContainerID}'
+                        echo 'ContainerID is exists'
                     }
-                    // else {
-                    //     sh 'docker run -it -d -p 8081:80 nginx:latest >> containerRun.txt'
-                    //     
-                    // }
+                    else {
+                        sh 'docker run -it -d -p 8081:80 nginx:latest > listContainer.txt'
+                    }
                 }
-                // echo ${ContainerID}
             }
         }
         // stage ('Copy source code') {
