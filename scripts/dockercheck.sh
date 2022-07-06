@@ -1,13 +1,11 @@
 #!/bin/bash
-checkContainerID(){
-    docker ps -a >> listContainer.txt
-    containerID=$(awk '{print $1}' listContainer.txt)
-    if [$containerID]
+CONTAINER_NAME="nginx"
+checkContainer(){
+    EXISTS_NAME_CONTAINER=$(docker inspect --type=container --format="{{.Name}}" $CONTAINER_NAME)
+    if [$EXISTS_NAME_CONTAINER]
     then
-        echo $containerID
-    else
-        docker pull nginx
-        docker run -it -d -p 8081:80 nginx:latest 
-    fi
+        docker exec -it $CONTAINER_NAME /bin/bash
+    elif
+    then 
+        docker run -it -d -p 8081:80 --name nginx nginx:latest
 }
-checkContainerID
