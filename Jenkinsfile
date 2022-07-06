@@ -9,14 +9,14 @@ pipeline {
         stage ('Build Nginx') {
             steps {
                 sh 'docker pull nginx'
-                sh 'docker ps -a > listContainer.txt'
+                sh 'docker ps -a >> listContainer.txt'
                 script {
                     ContainerID =  sh( returnStdout: true, script: 'awk "{print $1}" listContainer.txt').trim()
                     if(ContainerID) {
                         echo 'ContainerID is exists'
                     }
                     else {
-                        sh 'docker run -it -d -p 8081:80 nginx:latest > listContainer.txt'
+                        sh 'docker run -it -d -p 8081:80 nginx:latest >> listContainer.txt'
                     }
                 }
             }
