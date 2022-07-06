@@ -16,7 +16,7 @@ pipeline {
                     // }
                     // else {
                         sh 'docker run -it -d -p 8081:80 nginx:latest > containerID.txt'
-                        ContainerID =  sh( returnStdout: true, script: "awk '{print $1;}'").trim()
+                        ContainerID =  sh( returnStdout: true, script: 'awk '{print $1;}'').trim()
                         echo ContainerID
                     // }
                 }
