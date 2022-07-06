@@ -20,7 +20,7 @@ pipeline {
                     //     
                     // }
                 }
-                echo ${ContainerID}
+                // echo ${ContainerID}
             }
         }
         // stage ('Copy source code') {
