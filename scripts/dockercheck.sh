@@ -7,7 +7,7 @@ checkContainer(){
         docker cp -a $WORKSPACE/ ${CONTAINER_NAME}:/usr/share/nginx/html/
     else
         docker pull nginx
-        docker run -it -d -p 8081:80 --name $CONTAINER_NAME --volume "nginx-config":/etc/nginx/conf.d --user $(id -u):$(id -g) nginx:latest
+        docker run -it -d -p 8081:80 --name $CONTAINER_NAME --volume "nginx-config":/etc/nginx/conf.d nginx:latest
         docker cp -a $WORKSPACE/ ${CONTAINER_NAME}:/usr/share/nginx/html/
     fi
 }
